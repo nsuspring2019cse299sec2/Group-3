@@ -15,6 +15,12 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('job_id')->unsigned();
+            $table->integer('applicant_id')->unsigned();
+            $table->text('description');
+            $table->text('achievements');
+            $table->text('prev_exp');
+            $table->string('resume_file_path');
             $table->timestamps();
         });
     }
