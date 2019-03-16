@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/index.php', function () {
     return view('welcome');
 });
+Route::get('/jobs', function () {
+    return view('jobs');
+});
