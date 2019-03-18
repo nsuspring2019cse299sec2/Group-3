@@ -24,11 +24,14 @@
     <!-- Theme CSS - Includes Bootstrap -->
     <link href="{{asset('css/creative.min.css')}}" rel="stylesheet">
     <style>
-        .list-group-item, .card{
+        .list-group-item, .card, .table{
             border: 1px solid rgb(255, 255, 255);
         }
         .badge {
             padding: 0.5em 1em !important;
+        }
+        .navbar-active{
+            background-color: antiquewhite;
         }
     </style>
     <link rel="manifest" href="manifest.webmanifest">
@@ -46,7 +49,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <form class="form-inline ml-auto">
-                    <input class="form-control mr-sm-2" style="border-color: #fff;" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mr-sm-2" style="border-color: #fff;" type="search" placeholder="Search"
+                        aria-label="Search">
                     <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
@@ -54,10 +58,7 @@
                         <a class="nav-link js-scroll-trigger" href="/jobs">Explore Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/register">Sign up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/login">Login</a>
+                        <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -69,20 +70,24 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    @yield('content-summary')
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
                     @yield('content')
                 </div>
                 <div class="col-lg-2">
-                    <div class="row">
-                        <div class="card">
-                            <div class="card-body">
-                                This is advertisement body.
-                            </div>
-                        </div>
+                    <div class="row card">
+                        <ul class="card-body nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link navbar-active" href="#">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#users">Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Jobs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Applications</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
