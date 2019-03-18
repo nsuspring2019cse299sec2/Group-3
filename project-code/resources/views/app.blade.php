@@ -3,11 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <title>A2HS demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Job Market') }}</title>
+
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <!-- Font Awesome Icons -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
@@ -15,13 +19,16 @@
         type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="{{asset('vendor/magnific-popup/magnific-popup.css')}}" rel="stylesheet">
 
     <!-- Theme CSS - Includes Bootstrap -->
-    <link href="css/creative.min.css" rel="stylesheet">
+    <link href="{{asset('css/creative.min.css')}}" rel="stylesheet">
     <style>
-        .list-group-item{
+        .list-group-item, .card{
             border: 1px solid rgb(255, 255, 255);
+        }
+        .badge {
+            padding: 0.5em 1em !important;
         }
     </style>
     <link rel="manifest" href="manifest.webmanifest">
@@ -38,18 +45,19 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
+                <form class="form-inline ml-auto">
+                    <input class="form-control mr-sm-2" style="border-color: #fff;" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+                </form>
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/jobs">Explore Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="/register">Sign up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="/login">Login</a>
                     </li>
                 </ul>
             </div>
@@ -61,20 +69,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h3 class="mb-1">Job Information</h3>
-                            </div>
-                            <p class="mb-1">
-                                If you’re ready for a new and challenging job, take a look at our wide range of
-                                Enterprise jobs.
-                                Whatever type of job in Enterprise you’re seeking, you can find it on our website. View
-                                our listings of
-                                Enterprise job opportunities and find your perfect fit today.
-                            </p>
-                        </a>
-                    </div>
+                    @yield('content-summary')
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -102,16 +97,16 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}" defer></script>
+    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}" defer></script>
 
     <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}" defer></script>
+    <script src="{{asset('vendor/magnific-popup/jquery.magnific-popup.min.js')}}" defer></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
-    <script src="js/index.js" defer></script>
+    <script src="{{asset('js/creative.min.js')}}" defer></script>
+    <script src="{{asset('js/index.js')}}" defer></script>
 </body>
 
 </html>
