@@ -17,3 +17,19 @@ Route::get('/', function () {
 Route::get('/index.php', function () {
     return view('welcome');
 });
+Route::get('/jobs', function () {
+    return view('jobs');
+});
+Route::get('/job/{id}', function ($id) {
+    return view('job');
+});
+Route::get('/job', function () {
+    return view('create-job');
+});
+Route::get('/admin/dashboard', function () {
+    return view('dashboard');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
