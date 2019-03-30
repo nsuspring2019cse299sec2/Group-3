@@ -27,7 +27,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Job Vacancy</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,14 +59,12 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-10 align-self-end">
-                    <h1 class="text-uppercase text-white font-weight-bold">Your Favorite Source of Free Bootstrap
-                        Themes</h1>
+                    <h1 class="text-uppercase text-white font-weight-bold">Explore the unique platform for faster Job Application!
+                     </h1>
                     <hr class="divider my-4">
                 </div>
                 <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites
-                        using the Bootstrap framework! Just download a theme and start customizing, no strings
-                        attached!</p>
+                    <p class="text-white-75 font-weight-light mb-5">Start using Online Job Vacancy it can help you build better carrier.! Just download the app or use the website.</p>
                     <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
                 </div>
             </div>
@@ -80,9 +78,7 @@
                 <div class="col-lg-8 text-center">
                     <h2 class="text-white mt-0">We've got what you need!</h2>
                     <hr class="divider light my-4">
-                    <p class="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up
-                        and running in no time! Choose one of our open source, free to download, and easy to use
-                        themes! No strings attached!</p>
+                    <p class="text-white-50 mb-4">Start Searching for the perfect Job that will suit you're educational background and you're capability. We have thousands of Job posted in our Official Site. So hurry up and Sign in before opportunity runs out!</p>
                     <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
                 </div>
             </div>
@@ -216,7 +212,7 @@
     <!-- Call to Action Section -->
     <section class="page-section bg-dark text-white">
         <div class="container text-center">
-            <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
+            <h2 class="mb-4">Free Download Job Vacancy!</h2>
             <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
         </div>
     </section>
@@ -228,8 +224,8 @@
                 <div class="col-lg-8 text-center">
                     <h2 class="mt-0">Let's Get In Touch!</h2>
                     <hr class="divider my-4">
-                    <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an
-                        email and we will get back to you as soon as possible!</p>
+                    <p class="text-muted mb-5">Ready to start your carrier with us? Register online and sign up!
+                       </p>
                 </div>
             </div>
             <div class="row">
@@ -249,7 +245,7 @@
     <!-- Footer -->
     <footer class="bg-light py-5">
         <div class="container">
-            <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
+            <div class="small text-center text-muted">Copyright &copy; 2019 - Job Vacancy</div>
         </div>
     </footer>
 
