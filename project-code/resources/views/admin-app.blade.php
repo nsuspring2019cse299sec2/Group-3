@@ -15,8 +15,8 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet'
-        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'
+        rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
     <link href="{{asset('vendor/magnific-popup/magnific-popup.css')}}" rel="stylesheet">
@@ -24,14 +24,23 @@
     <!-- Theme CSS - Includes Bootstrap -->
     <link href="{{asset('css/creative.min.css')}}" rel="stylesheet">
     <style>
-        .list-group-item, .card, .table{
+        .list-group-item,
+        .card,
+        .table {
             border: 1px solid rgb(255, 255, 255);
         }
+
         .badge {
             padding: 0.5em 1em !important;
         }
-        .navbar-active{
+
+        .navbar-active {
             background-color: antiquewhite;
+        }
+        .sticky {
+            position: fixed;
+            top: 100;
+            width: 14.1%;
         }
     </style>
     <link rel="manifest" href="manifest.webmanifest">
@@ -43,8 +52,9 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -73,7 +83,7 @@
                     @yield('content')
                 </div>
                 <div class="col-lg-2">
-                    <div class="row card">
+                    <div class="row card" id="rmenu">
                         <ul class="card-body nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link navbar-active" href="#">Dashboard</a>
@@ -82,10 +92,10 @@
                                 <a class="nav-link" href="#users">Users</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Jobs</a>
+                                <a class="nav-link" href="#jobsl">Jobs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Applications</a>
+                                <a class="nav-link" href="#applications">Applications</a>
                             </li>
                         </ul>
                     </div>
@@ -112,6 +122,23 @@
     <!-- Custom scripts for this template -->
     <script src="{{asset('js/creative.min.js')}}" defer></script>
     <script src="{{asset('js/index.js')}}" defer></script>
+    <script>
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        var rmenu = document.getElementById("rmenu");
+        var sticky = rmenu.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                rmenu.classList.add("sticky");
+            } else {
+                rmenu.classList.remove("sticky");
+            }
+        }
+
+    </script>
 </body>
 
 </html>

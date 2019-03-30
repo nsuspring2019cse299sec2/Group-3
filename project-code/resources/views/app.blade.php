@@ -53,12 +53,18 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/jobs">Explore Jobs</a>
                     </li>
+                    @guest
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/register">Sign up</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/login">Login</a>
                     </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
+                    </li>
+                    @endguest
                 </ul>
             </div>
         </div>
