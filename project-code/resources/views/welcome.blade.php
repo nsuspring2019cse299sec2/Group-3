@@ -102,7 +102,7 @@
                     <div class="mt-5">
                         <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
                         <h3 class="h4 mb-2">Up to Date</h3>
-                        <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                        <p class="text-muted mb-0">All details of the application are given in the faq option.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
