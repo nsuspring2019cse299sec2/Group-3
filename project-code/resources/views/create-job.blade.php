@@ -15,24 +15,25 @@
                 <div class="card-body">
                     <form action="{{url('job')}}" method="post">
                         {{ csrf_field() }}
-                        <div class="form-group">
-                            <textarea class="form-control" id="summary-ckeditor" name="summary-ckeditor"></textarea>
+                        <div class="form-group row">
+                            <label for="job-title" class="col-sm-2 col-form-label">Job Title</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="job-title" type="text" placeholder="Job Title"
+                                    name="title">
+                            </div>
                         </div>
                         <div class="form-group">
-                                <label for="jobCategory">Category</label>
-                                <select class="form-control" id="jobCategory">
-                                  <option>Accounting</option>
-                                  <option>Administrative</option>
-                                  <option>Advertising</option>
-                                  <option>Aeronautics</option>
-                                  <option>Agriculture and Fishing</option>
-                                  <option>Animal Services</option>
-                                  <option>Automotive</option>
-                                  <option>Banking</option>
-                                  <option>Biotech</option>
-                                  <option>Business</option>
-                                </select>
-                              </div>
+                            <label for="summary-ckeditor">Description</label>
+                            <textarea class="form-control" id="summary-ckeditor" name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="jobCategory">Category</label>
+                            <select class="form-control" id="jobCategory" name="category">
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
 
