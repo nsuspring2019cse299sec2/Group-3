@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(\Auth::user()->role == 'company'){
+            $jobs = \App\Job::where('company_id', \Auth::user()->id)->get();
+
+            return view('home', compact('jobs'));
+        } else {
+            $jobs = \App\Application::where('applicant_id', \Auth::user()->id)->get();
+
+            return view('home', compact('jobs'));
+        }
     }
 }

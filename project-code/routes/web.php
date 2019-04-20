@@ -14,22 +14,47 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/index.php', function () {
+Route::get('index.php', function () {
     return view('welcome');
 });
-Route::get('/jobs', function () {
-    return view('jobs');
+
+Route::get('search',function(){
+    return view('search-result');
 });
-Route::get('/job/{id}', function ($id) {
-    return view('job');
+Route::post('search', 'JobController@search');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('jobs', function () {
+        $jobs = \App\Job::where('status', 1)->paginate();
+        return view('jobs',compact('jobs'));
+    });
+    Route::get('job/{id}', function ($id) {
+        $job = \App\Job::where('id', $id)->where('status', 1)->first();
+        $similar = \App\Job::where('category_id', $job->category_id)->where('status', 1)->get();
+        return view('job', compact('job', 'similar'));
+    });
+    Route::get('job', function () {
+        $categories = \App\Category::all();
+        return view('create-job', compact('categories'));
+    });
+    Route::post('job', 'JobController@store');
 });
-Route::get('/job', function () {
-    return view('create-job');
+
+Route::group(['middleware' => ['auth-jobseeker']], function () {
+    Route::get('apply-job/{id}', 'ApplicationController@create');
+    Route::post('apply-job','ApplicationController@store');
 });
-Route::get('/admin/dashboard', function () {
-    return view('dashboard');
+
+Route::group(['middleware' => ['auth-admin']], function () {
+    Route::get('admin/dashboard', function () {
+        $users = \App\User::paginate(5,["*"],'user_page');
+        $jobs = \App\Job::with('category')->paginate(5,["*"],'job_page');
+        $applications = \App\Application::paginate(5,["*"],'application_page');
+        $categories = \App\Category::paginate(5,["*"],'categories_page');
+        return view('dashboard',compact('users','jobs','applications','categories'));
+    });
+    Route::post('create-category', 'CategoryController@store');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');

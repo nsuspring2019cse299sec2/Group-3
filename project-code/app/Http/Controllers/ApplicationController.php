@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Job;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
@@ -22,9 +23,11 @@ class ApplicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(int $id)
     {
-        //
+        $job = Job::findOrFail($id);
+        $category = \App\Category::find($job->category_id);
+        return view('job-application',compact('job','id','category'));
     }
 
     /**
@@ -35,7 +38,15 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $application = new Application;
+        $application->job_id = $request->job_id;
+        $application->description = $request->description;
+        $application->achievements = '';
+        $application->prev_exp = '';
+        $application->applicant_id = \Auth::user()->id;
+        $application->resume_file_path = '';
+        $application->save();
+        return redirect('jobs')->with('status','Applied successfully');
     }
 
     /**

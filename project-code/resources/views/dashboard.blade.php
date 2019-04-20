@@ -47,56 +47,27 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Joined</th>
+                            <th scope="col">Role</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @if(count($users) > 0)
+                        @foreach ($users as $user)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>12th March 19</td>
+                            <th scope="row">{{$user->id}}</th>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->created_at}}</td>
+                            <td>{{$user->role}}</td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>12th March 19</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>12th March 19</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>12th March 19</td>
-                        </tr>
+                        @endforeach
+                        @endif
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
+                {{$users->links()}}
             </div>
         </div>
     </div>
@@ -106,74 +77,101 @@
         <div class="card col-md-12">
             <div class="card-body">
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
+                    @if(count($jobs) > 0)
+                    @foreach($jobs as $job)
+                    <a href="{{url('job/'.$job->id)}}" class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1" style="color:#f4623a !important;">List group item heading</h5>
-                            <small>3 days ago</small>
+                            <h5 class="mb-1" style="color:#f4623a !important;">{{$job->title}}</h5>
+                            <small>{{$job->created_at->format('Y m d')}}</small>
                         </div>
-                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                            varius blandit.</p>
-                        Category: <span class="badge badge-danger">Accounting</span>
+                        <p class="mb-1">{!!$job->description!!}</p>
+                        Category: <span class="badge badge-danger">{{$job->category->name}}</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1" style="color:#f4623a !important;">List group item heading</h5>
-                            <small class="text-muted">3 days ago</small>
-                        </div>
-                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                            varius blandit.</p>
-                        Category: <span class="badge badge-danger">Accounting</span>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1" style="color:#f4623a !important;">List group item heading</h5>
-                            <small class="text-muted">3 days ago</small>
-                        </div>
-                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                            varius blandit.</p>
-                        Category: <span class="badge badge-danger">Accounting</span>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1" style="color:#f4623a !important;">List group item heading</h5>
-                            <small>3 days ago</small>
-                        </div>
-                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                            varius blandit.</p>
-                        <small>Donec id elit non mi porta.</small>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1" style="color:#f4623a !important;">List group item heading</h5>
-                            <small class="text-muted">3 days ago</small>
-                        </div>
-                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                            varius blandit.</p>
-                        Category: <span class="badge badge-danger">Accounting</span>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1" style="color:#f4623a !important;">List group item heading</h5>
-                            <small class="text-muted">3 days ago</small>
-                        </div>
-                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                            varius blandit.</p>
-                        Category: <span class="badge badge-danger">Accounting</span>
-                    </a>
+                    @endforeach
+                    @endif
                 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
+                {{$jobs->links()}}
+            </div>
+        </div>
+    </div>
+    <br id="applications">
+    <h3 style="color: #fff;">Applications</h3>
+    <div class="row">
+        <div class="card col-md-12">
+            <div class="card-body">
+                <div class="list-group">
+                    @if(count($applications) > 0)
+                    @foreach($applications as $application)
+                    <a href="#" type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#exampleModal{{$application->id}}">{{Illuminate\Support\Str::limit($application->description, 100)}}</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal{{$application->id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel{{$application->id}}" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel{{$application->id}}">Application</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {!!$application->description!!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @endif
+                </div>
+                {{$applications->links()}}
+            </div>
+        </div>
+    </div>
+    <br id="categories">
+    <h3 style="color: #fff;">Categories <span class="float-right">
+            <a href="" type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                data-target="#exampleModal">Create</a></span>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 style="color: #555;">Create Category</h4>
+                        <form action="{{url('create-category')}}" method="post">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <label for="category-name">Category</label>
+                                <input type="text" class="form-control" id="category-name" name="category_name"
+                                    placeholder="Category">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h3>
+    <div class="row">
+        <div class="card col-md-12">
+            <div class="card-body">
+                <ul class="list-group">
+                    @if(count($categories) > 0)
+                    @foreach($categories as $category)
+                    <li class="list-group-item">{{$category->name}}</li>
+                    @endforeach
+                    @endif
+                </ul>
+                {{$categories->links()}}
             </div>
         </div>
     </div>
