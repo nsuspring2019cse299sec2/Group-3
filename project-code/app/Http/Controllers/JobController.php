@@ -35,9 +35,23 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $job = new Job;
+        $job->title = $request->title;
+        $job->description = $request->description;
+        $job->category_id = $request->category;
+        $job->status = 1;
+        $job->company_id = auth()->user()->id;
+        $job->applicant_id = 0;//as hired
+        $job->save();
+
+        return back()->with('status','Posted');
     }
 
+    public function search(Request $request){
+        $jobs = Job::where('title','LIKE',"%$request->search%")->get();
+        return view('search-result',compact('jobs'));
+    }
     /**
      * Display the specified resource.
      *
