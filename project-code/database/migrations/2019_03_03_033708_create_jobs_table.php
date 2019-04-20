@@ -20,7 +20,7 @@ class CreateJobsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('status');
             $table->integer('company_id')->unsigned();
-            $table->integer('applicant_id')->unsigned();
+            $table->integer('applicant_id')->unsigned();//as hired
             $table->timestamps();
         });
     }
