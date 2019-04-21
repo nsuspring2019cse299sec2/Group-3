@@ -6,35 +6,35 @@
             <div class="card-header">Total Jobs</div>
             <div class="card-body">
                 <h5 class="card-title">Active jobs</h5>
-                <p class="card-text">2045</p>
+                <p class="card-text">{{\App\Job::where('status',1)->count()}}</p>
             </div>
         </div>
         <div class="card text-white bg-secondary mb-3 col-lg-4 mr-3" style="max-width: 18rem;">
             <div class="card-header">Total Applications</div>
             <div class="card-body">
                 <h5 class="card-title">Active Applications</h5>
-                <p class="card-text">5034</p>
+                <p class="card-text">{{\App\Application::count()}}</p>
             </div>
         </div>
         <div class="card text-white bg-success mb-3 col-lg-4 mr-3" style="max-width: 18rem;">
             <div class="card-header">Total Hired</div>
             <div class="card-body">
                 <h5 class="card-title">Till now</h5>
-                <p class="card-text">4302</p>
+                <p class="card-text">{{\App\Job::where('applicant_id',1)->count()}}</p>
             </div>
         </div>
         <div class="card text-white bg-danger mb-3 col-lg-4 mr-3" style="max-width: 18rem;">
             <div class="card-header">Total Employers</div>
             <div class="card-body">
                 <h5 class="card-title">Till now</h5>
-                <p class="card-text">250</p>
+                <p class="card-text">{{\App\User::where('role','company')->count()}}</p>
             </div>
         </div>
         <div class="card text-white bg-dark mb-3 col-lg-4 mr-3" style="max-width: 18rem;">
             <div class="card-header">Total Job Seeker</div>
             <div class="card-body">
                 <h5 class="card-title">Till now</h5>
-                <p class="card-text">8946</p>
+                <p class="card-text">{{\App\User::where('role','jobseeker')->count()}}</p>
             </div>
         </div>
     </div>

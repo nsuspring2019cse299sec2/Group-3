@@ -73,6 +73,9 @@
                     <li class="nav-item">
                         <a href="{{url('job')}}" class="nav-link">Create Job</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{url('hired')}}" class="nav-link">Hired</a>
+                    </li>
                     @endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
