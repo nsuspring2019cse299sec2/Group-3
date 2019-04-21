@@ -37,6 +37,12 @@ Route::group(['middleware' => ['auth']], function () {
         return view('create-job', compact('categories'));
     });
     Route::post('job', 'JobController@store');
+    Route::get('hired',function(){
+        $jobs = \App\Job::where('company_id', \Auth::user()->id)->get();
+        $users = \App\Job::where('company_id', \Auth::user()->id)->where('applicant_id', 1)->pluck('applicant_id')->toArray();
+        $hired = \App\User::whereIn('id', $users)->get();
+        return view('hired',compact('jobs','hired'));
+    });
 });
 
 Route::group(['middleware' => ['auth-jobseeker']], function () {

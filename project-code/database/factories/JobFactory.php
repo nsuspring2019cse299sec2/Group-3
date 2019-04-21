@@ -9,6 +9,6 @@ $factory->define(App\Job::class, function (Faker $faker) {
         'category_id' => $faker->randomElement(\App\Category::pluck('id')->toArray()),
         'status' => $faker->randomElement([1,0]),
         'company_id' => $faker->randomElement(\App\User::where('role','company')->pluck('id')->toArray()),
-        'applicant_id' => 0,
+        'applicant_id' => $faker->randomElement([1,0]),
     ];
 });
